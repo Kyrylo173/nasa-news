@@ -13,6 +13,27 @@
                 <h1 id="releases-title">News Releases</h1>
                 <a href="https://www.nasa.gov/news">Усі новини</a>
             </div>
+            <div class="news-controls">
+               <div class="filter-group" role="group" aria-label="Фільтр новин за категоріями">
+                 <button type="button" class="filter-btn filter-btn--active">Усі новини</button>
+                 <button type="button" class="filter-btn">Місії</button>
+                 <button type="button" class="filter-btn">Технології</button>
+                 <button type="button" class="filter-btn" >Блог</button>
+               </div>
+               <form class="search-form" action="#" method="get">
+                <label for="news-search" class="visually-hidden">Пошук новин</label>
+                <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                    <path d="m16 16 4.5 4.5"></path>
+                </svg>
+                <input type="search"
+                id="news-search"
+                name="q"
+                class="search-input"
+                placeholder="Пошук за темою">
+                <button type="submit" class="search-btn" aria-label="Шукати">Знайти</button>
+               </form>
+            </div>
             <div class="release-grid release-grid--featured">
                 <article class="release-card release-card--lead">
                     <img src="./media/zobrazhenia1.jpg" alt="Підготовка екіпажу до нової місії">
@@ -65,6 +86,46 @@
                     </div>
                 </article>
             </div>
+        </section>
+        <section class="subscribe" aria-labelledby="subscribe-title">
+            <div class="subscribe-container">
+                <div class="subscribe-info">
+                    <h2 id="subscribe-title">Будьте в курсі головних відкриттів</h2>
+                    <p>Щотижневий дайджест найважливіших новин, звітів місій та наукових статей прямо на вашу пошту.</p>
+                </div>
+              <form class="subscribe-form" action="#" method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user-name">Ваше ім'я</label>
+                          <input type="text" id="user-name" name="name" placeholder="Оксана" required minlength="2">
+                    </div>
+                     <div class="form-group">
+                        <label for="user-email">Електронна пошта</label>
+                        <input type="email" id="user-email" name="email" placeholder="name@example.com" required> 
+                    </div>
+                </div>
+                <div class="form-group">
+                       <label for="news-topic">Яка тема цікавить найбільше?</label>
+                       <select name="topic" id="news-topic">
+                        <option value="all">Усі новини та дайджести</option>
+                        <option value="space">Космічні місії та дослідження</option>
+                        <option value="tech">Інженерія та нові технології</option>
+                       <option value="science">Наука про Землю</option>   
+                    </select>
+                </div>
+                <label class="checkbox-label" for="news-agree">
+                    <input type="checkbox" id="news-agree" name="agree" required>
+                    <span>Погоджуюся отримути розсилку та приймаю умови конфіденційності</span>
+                </label>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn--primary">Підписатись</button>
+                    <button type="reset" class="btn btn--outline">Очистити</button>
+                    <button type="button" class="btn btn--outline" disabled>Зберегти чернетку</button>
+                </div>
+              </form>
+
+            </div>
+
         </section>
     </main>
 </body>

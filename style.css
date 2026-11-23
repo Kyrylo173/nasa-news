@@ -130,6 +130,31 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+.subscribe-container {
+grid-template-columns: 1fr;
+gap: 24px;
+}
+}
+@media (max-width: 600px) {
+.search-form {
+width: 100%;
+}
+.search-input {
+flex: 1;
+min-width: 0;
+}
+.form-row {
+grid-template-columns: 1fr;
+}
+.form-actions {
+flex-direction: column;
+}
+.btn {
+width: 100%;
+}
+}
+
 @media (max-width: 600px) {
   .releases {
     padding: 32px 16px;
@@ -158,4 +183,251 @@ body {
   .release-grid--featured .release-card--lead .release-content h2 {
     font-size: 28px;
   }
+}
+:root {
+--color-primary: #0b3d91;
+--color-primary-hover: #082d6b;
+--color-accent: #e43f3f;
+--color-bg-light: #f4f6f9;
+--color-border: #cbd5e1;
+--color-text: #1e293b;
+--radius: 6px;
+}
+/* Допоміжний клас для доступності */
+.visually-hidden {
+position: absolute;
+width: 1px;
+height: 1px;
+overflow: hidden;
+clip: rect(0 0 0 0);
+white-space: nowrap;
+}
+/* Панель фільтрів та пошуку */
+.news-controls {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 16px;
+margin: 24px 0;
+}
+.filter-group {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+.filter-btn {
+padding: 8px 16px;
+
+border: 1px solid var(--color-border);
+border-radius: 20px;
+background: #ffffff;
+color: var(--color-text);
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.filter-btn:hover {
+border-color: var(--color-primary);
+color: var(--color-primary);
+}
+.filter-btn--active {
+background: var(--color-primary);
+border-color: var(--color-primary);
+color: #ffffff;
+}
+.filter-btn--active:hover {
+background: var(--color-primary-hover);
+color: #ffffff;
+}
+/* Пошук */
+.search-form {
+position: relative;
+display: flex;
+gap: 8px;
+}
+.search-icon {
+position: absolute;
+left: 12px;
+top: 50%;
+width: 16px;
+height: 16px;
+transform: translateY(-50%);
+fill: none;
+stroke: #64748b;
+stroke-linecap: round;
+stroke-width: 2;
+pointer-events: none;
+}
+.search-input {
+padding: 8px 14px 8px 36px;
+border: 1px solid var(--color-border);
+border-radius: var(--radius);
+font-size: 14px;
+min-width: 220px;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-btn {
+padding: 8px 16px;
+border: none;
+border-radius: var(--radius);
+background: var(--color-text);
+color: #ffffff;
+font-size: 14px;
+font-weight: 600;
+
+cursor: pointer;
+transition: background-color 0.2s ease;
+}
+.search-btn:hover {
+background: var(--color-primary);
+}
+.subscribe {
+background: var(--color-bg-light);
+padding: 50px 20px;
+margin-top: 40px;
+border-top: 1px solid var(--color-border);
+}
+.subscribe-container {
+max-width: 1220px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+gap: 40px;
+align-items: start;
+}
+.subscribe-info h2 {
+margin: 0 0 12px;
+font-size: 28px;
+color: var(--color-text);
+}
+.subscribe-info p {
+margin: 0;
+line-height: 1.5;
+color: #475569;
+}
+.subscribe-form {
+background: #ffffff;
+padding: 28px;
+border-radius: 10px;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
+
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+}
+.form-group {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+.form-group label {
+font-size: 14px;
+font-weight: 600;
+color: var(--color-text);
+}
+.form-group input,
+.form-group select {
+padding: 10px 12px;
+border: 1px solid var(--color-border);
+border-radius: var(--radius);
+font-family: inherit;
+font-size: 15px;
+color: var(--color-text);
+background: #ffffff;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group select {
+appearance: none;
+padding-right: 36px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%231e293b' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-position: right 12px center;
+}
+/* Стан фокусу для всіх інтерактивних полів */
+.search-input:focus,
+.form-group input:focus,
+.form-group select:focus {
+outline: none;
+border-color: var(--color-primary);
+box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.15);
+}
+/* Доступний фокус при навігації клавіатурою (Tab) */
+button:focus-visible,
+input[type=checkbox]:focus-visible {
+outline: 2px solid var(--color-accent);
+outline-offset: 2px;
+}
+/* Валідація заповнених полів без JS */
+.form-group input:not(:placeholder-shown):invalid {
+border-color: var(--color-accent);
+
+}
+.form-group input:not(:placeholder-shown):valid {
+border-color: #16a34a;
+}
+/* Чекбокс */
+.checkbox-label {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+font-size: 14px;
+color: #475569;
+cursor: pointer;
+}
+.checkbox-label input[type=checkbox] {
+width: 18px;
+height: 18px;
+margin-top: 2px;
+accent-color: var(--color-primary);
+cursor: pointer;
+}
+/* Кнопки форми */
+.form-actions {
+display: flex;
+gap: 12px;
+margin-top: 4px;
+}
+.btn {
+padding: 12px 24px;
+border-radius: var(--radius);
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.btn--primary {
+background: var(--color-primary);
+border: 1px solid var(--color-primary);
+color: #ffffff;
+}
+.btn--primary:hover {
+background: var(--color-primary-hover);
+transform: translateY(-1px);
+
+}
+.btn--primary:active {
+transform: translateY(0);
+}
+.btn--outline {
+background: transparent;
+border: 1px solid var(--color-border);
+color: var(--color-text);
+}
+.btn--outline:hover {
+border-color: var(--color-text);
+background: #f8fafc;
+}
+button:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+}
+button:disabled:hover {
+transform: none;
 }
